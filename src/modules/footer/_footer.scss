@@ -1,0 +1,11 @@
+.footer{
+  background: $gray-darkest;
+  display: flex;
+  height: 70px;
+  &__container{
+    color: $gray-light;
+    font-size: $font-size-h5;
+    text-align: center;
+    margin: auto;
+  }
+}

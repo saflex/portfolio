@@ -1,0 +1,512 @@
+.portfolio {
+    * {
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .row {
+        @include for-size(exs) {
+            margin-left: -15px;
+            margin-right: -15px;
+            justify-content: center;
+        }
+    }
+
+    .portfolio_show-info {
+        display: none;
+    }
+
+    &__container {
+        padding-top: 130px;
+        padding-bottom: 30px;
+        overflow: hidden;
+    }
+
+    &__title-main {
+        margin-bottom: 80px;
+    }
+
+    &__title {
+        margin: 20px auto 20px auto;
+        text-transform: uppercase;
+        font-size: $font-size-h5;
+        font-family: $font-family-bold;
+        width: 100%;
+        position: relative;
+
+        &:before {
+            content: '';
+            bottom: -8px;
+            left: 50%;
+            width: 20px;
+            height: 2px;
+            background: $color-main;
+            margin-left: -10px;
+            position: absolute;
+        }
+    }
+
+    &__ui-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        position: relative;
+        height: 70px;
+        margin-left: -2px;
+        margin-right: -2px;
+
+        @include for-size(md) {
+            margin-bottom: 50px;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+
+        @include for-size(lg) {
+            flex-direction: row;
+        }
+    }
+
+    &__button-group {}
+
+    &__js-radio-button-group {}
+
+    &__projects {
+        margin: auto;
+        display: flex;
+
+        .button-text {
+            color: $white;
+        }
+
+        @include for-size(md) {
+            margin-left: 0;
+        }
+    }
+
+    &__check-link {}
+
+    &__filter {
+        display: none;
+
+        .button-text {
+            color: $white;
+        }
+
+        @include for-size(md) {
+            display: flex;
+            margin-left: auto;
+        }
+    }
+
+    &__inner {
+        flex-wrap: wrap;
+        min-height: 230px;
+    }
+
+    &__item {
+        width: 0;
+        opacity: 0;
+        transform: scale(1);
+        max-height: 0;
+        position: relative;
+        font-size: 0;
+        margin-bottom: 90px;
+        @include for-size(xs) {
+            margin-bottom: 120px;
+        }
+    }
+
+    &__item.column {
+        padding: 0;
+    }
+
+    .projects__button,
+    .filter__button {
+        border: 0;
+        cursor: pointer;
+        background: $color-main;
+        color: $white;
+        margin: 2px;
+        padding: 5px 7.2px 6px 7.2px;
+        font-size: 1.2rem;
+        transition: $transition-time ease-in-out;
+        font-family: $font-family-bold;
+        @include for-size(sm) {
+            font-size: $font-size-h6;
+        }
+        @include for-size(lg) {
+            font-size: $font-size-sm;
+            margin: 2px;
+        }
+
+        &:hover {
+            background: $color-main2;
+        }
+    }
+
+    .projects__button.is_active-project,
+    .filter__button.is_active-type {
+        background: $color-main2;
+    }
+
+    &__item.is_active-project {
+        opacity: 1;
+        max-height: 700px;
+        transform: scale(1);
+        width: 100%;
+        position: relative;
+        font-size: $font-size-h5;
+
+        @include for-size(exs) {
+            width: 50%;
+            text-align: center;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @include for-size(sm) {
+            width: 33.33%;
+        }
+    }
+
+    &__item.no__show.is_active-project {
+        @include for-size(md) {
+            font-size: 0;
+            opacity: 0;
+            //transition: $transition-time-big ease-in-out;
+            transform: scale(1);
+            width: 0;
+            max-height: 0;
+            padding: 0;
+        }
+    }
+
+
+    &__item.no__show.is_active-project.is_active-type {
+        transform: scale(1);
+        opacity: 1;
+        max-height: 700px;
+        font-size: $font-size-h5;
+        width: 100%;
+        position: relative;
+
+        @include for-size(exs) {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 50%;
+        }
+
+        @include for-size(sm) {
+            width: 33.33%;
+        }
+    }
+
+
+    &__link {}
+
+    &__url {
+        color: $color-main;
+        font-size: $font-size-h5;
+        margin: 0 auto 10px auto;
+        font-family: $font-family-semibold;
+        transition: $transition-time ease-in-out;
+        word-break: break-all;
+    }
+
+    &__img {
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.1);
+        width: 360px;
+        max-width: 100%;
+        transition: $transition-time ease-in-out;
+
+        &.loaded {
+            opacity: 1;
+        }
+    }
+
+
+
+    &__subtitle {
+        font-size: $font-size-h5;
+        font-family: "ProximaNova-Regular", sans-serif;
+        color: #808080;
+        text-align: center;
+        margin: 0 auto 20px auto;
+        display: none;
+    }
+
+    &__text_style {
+        font-size: $font-size-h6;
+        margin: auto auto auto 0;
+        background: $color-main;
+        border-radius: 5px;
+        padding: 2px 8px;
+        color: $white;
+        display: inline-block;
+        transition: $transition-time ease-in-out;
+    }
+
+    &__main,
+    &__hint {
+        width: 100%;
+        //width: 100%;
+        //height: 100%;
+        //overflow: hidden;
+        //backface-visibility: hidden;
+        //position: absolute;
+        //transition: transform .6s linear;
+    }
+
+    //&__main {
+    //  transform: perspective(600px) rotateY(0deg);
+    //
+    //}
+    //
+    //&__hint{
+    //  transform: perspective(600px) rotateY(180deg);
+    //}
+
+    &__hint {
+        display: flex;
+    }
+
+    &__hint-box {
+        //display: flex;
+        //position: absolute;
+        //background: $color-main;
+        //top: 0;
+        //left: 0;
+        //height: 80%;
+        //width: 100%;
+        margin: auto auto 0 auto;
+    }
+
+    &__hint-info {
+        font-size: $font-size-h5;
+        margin: auto auto 15px auto;
+        color: $gray-light;
+    }
+}
+
+.container {}
+
+.portfolio_scrollTo {}
+
+.is-checked {}
+
+.sh1 {}
+
+.landing {}
+
+.ver {}
+
+.portfolio-column {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background: none;
+
+    @include for-size(exs) {
+        padding-bottom: 0;
+        height: 100%;
+    }
+
+    &:hover .portfolio__url {
+        color: $color-main2;
+    }
+
+    &:hover .portfolio__img {
+        transform: scale(1.05);
+        box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover .portfolio__text_style {
+        background: $color-main2;
+    }
+
+}
+
+
+
+
+
+.portfolio__item.column.portfolio_show-info.shop.pro.web.key.is_active-project {
+    font-size: 0;
+    opacity: 0;
+    transform: scale(1);
+    width: 0;
+    max-height: 0;
+    padding: 0;
+    z-index: -1;
+}
+
+.portfolio__item.column.portfolio_show-info.shop.pro.web.key.is_active-project.no__show.is_active-type {
+    transform: scale(1);
+    opacity: 1;
+    max-height: 700px;
+    position: absolute;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    font-size: $font-size-h4;
+    font-family: $font-family-bold;
+
+    @include for-size(md) {
+        display: block;
+    }
+
+    .portfolio_show-info-style {
+        color: $color-main2;
+        margin-top: 7px;
+        display: block;
+        font-family: $font-family-bold;
+    }
+}
+
+
+
+.portfolio__ui-group_fixed {
+    position: fixed;
+    z-index: 22;
+    top: auto;
+    width: 100%;
+    background: #1d1d1e;
+    padding-bottom: 15px;
+    left: 2px;
+    height: auto;
+    display: block;
+    bottom: 0;
+    margin-bottom: 0;
+    padding-top: 15px;
+
+    @include for-size(sm) {
+        position: fixed;
+        z-index: 22;
+        top: 70px;
+        width: 100%;
+        background: #1d1d1e;
+        padding-top: 0;
+        padding-bottom: 24px;
+        left: 2px;
+        bottom: auto;
+    }
+}
+
+
+.portfolio__ui-group_fixed {
+    position: fixed;
+    z-index: 22;
+    top: auto;
+    width: 100%;
+    background: #1d1d1e;
+    padding-bottom: 15px;
+    left: 2px;
+    height: auto;
+    display: block;
+    bottom: 0;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+
+
+.portfolio__ui-group_fixed .portfolio__filters {
+    max-width: 1200px;
+    margin: auto;
+    padding-left: 13px;
+    padding-right: 13px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.portfolio__ui-group_fixed+.portfolio__inner {
+    padding-top: 90px;
+
+    @include for-size(md) {
+        padding-top: 120px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .portfolio__projects {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.github {
+    background: none;
+    text-align: center;
+    font-size: $font-size-h6;
+    display: flex;
+    text-decoration: none;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    i {
+        font-style: italic;
+        display: block;
+        color: #000;
+        opacity: 0.65;
+        transition: $transition-time-big ease-in-out;
+
+        span {
+            font-family: $font-family-bold;
+        }
+    }
+
+    svg {
+        display: block;
+        margin-left: 7px;
+        opacity: 0.65;
+        transition: $transition-time-big ease-in-out;
+        max-width: 20px;
+    }
+
+    a:hover i,
+    a:hover svg {
+        opacity: 1;
+    }
+
+    a:hover svg {
+        transform: scale(1.1);
+    }
+}
+
+
+@supports (display: grid) {
+    .portfolio__inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-gap: 15px;
+    }
+
+    .portfolio__inner,
+    .portfolio__item {
+        margin: 0;
+    }
+    body .portfolio__item.is_active-project, body .portfolio__item.no__show.is_active-project.is_active-type {
+    width: 100%;
+    display: block;
+    }
+    .portfolio__item, .portfolio__item.no__show.is_active-project.no__show, .portfolio__item.column.portfolio_show-info.shop.pro.web.key.is_active-project{
+        display: none;
+    }
+
+}

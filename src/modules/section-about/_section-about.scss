@@ -1,0 +1,216 @@
+.about {
+  &__container {
+    padding-top: 130px;
+  }
+  &__title {
+    margin-bottom: 80px;
+  }
+  &__subtitle{
+    font-size: $font-size-h4;
+    font-family: $font-family-bold;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-size: $font-size-h5;
+    line-height: $line-height;
+  }
+  &__paragraph {
+    padding-bottom: 20px;
+  }
+  &__paragraph_color {
+    font-family: $font-family-bold;
+    padding: 0px 5px 1px;
+    margin-right: 1px;
+    color: $white;
+    background: $color-main2;
+    white-space: nowrap;
+  }
+}
+
+.roadmap {
+  &__title {
+    background: $color-main;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    font-size: $font-size-h3;
+    font-family: $font-family-bold;
+    letter-spacing: 1px;
+    margin: 45px 0 80px 0;
+    position: relative;
+    z-index: 22;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 170%;
+      background: $color-main;
+      left: 55px;
+      top: 45px;
+      @include for-size(lg) {
+        left: 50%;
+        margin-left: -2px;
+      }
+    }
+  }
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    @include for-size(lg) {
+      padding-bottom: 100px;
+    }
+  }
+  &__line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: $color-main;
+    left: 55px;
+    @include for-size(lg) {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
+
+
+
+  &__item {
+    margin-bottom: 20px;
+    padding-left: 130px;
+    position: relative;
+    transform: translateY(-118px);
+    transition: $transition-time-big ease-in-out;
+    opacity: 0;
+    &.active__item{
+        transform: translateY(0);
+      opacity: 1;
+    }
+    @include for-size(lg) {
+        width: 55%;
+        margin: 0 auto 0 0;
+      box-sizing: border-box;
+      padding-right: 15%;
+      padding-left: 0;
+      text-align: right;
+      &:nth-child(2n){
+        margin: 0 0 0 auto;
+        padding-right: 0;
+        padding-left: 15%;
+        text-align: left;
+      }
+      &:before{
+       left:auto;
+        right: 0;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        width: 7%;
+        height: 2px;
+        background: $color-main;
+        top: 56px;
+        left: auto;
+        right: 110px;
+      }
+      &:nth-child(2n):before{
+        left: 0;
+        margin-left: 0;
+      }
+      &:nth-child(2n):after{
+        left: 110px;
+        right: auto;
+      }
+    }
+
+    &:before{
+      content: '';
+      width: 115px;
+      height: 115px;
+      background: $color-main;
+      font-family: $font-family-bolder;
+      color: $white;
+      font-size: $font-size-h2;
+      position: absolute;
+     //border: 1px dashed $white;
+      line-height: 1em;
+      text-align: center;
+      letter-spacing: -0.04em;
+      padding-top: 41px;
+      border-radius: 150px;
+      margin-left: -133px;
+      top: 0;
+      box-sizing: border-box;
+    }
+
+    &:nth-child(2):before{
+      content: '2013';
+    }
+    &:nth-child(3):before{
+      content: '2014';
+    }
+    &:nth-child(4):before{
+      content: '2015';
+    }
+    &:nth-child(5):before{
+      content: '2016';
+    }
+    &:nth-child(6):before{
+      content: '2017- 2019';
+      padding-top: 32px;
+      @include for-size(sm) {
+        padding-top: 25px;
+      }
+    }
+    &:nth-child(7):before{
+      content: '2020';
+    }
+  }
+
+
+
+  &__img {
+    height: auto;
+    max-height: 46px;
+    margin-bottom: 10px;
+  }
+  &__paragraph {
+    font-size: $font-size-h5;
+    line-height: $line-height;
+    padding-bottom: 20px;
+  }
+  &__text_bold {
+    font-weight: normal;
+    font-family: $font-family-bold;
+  }
+  &__link {
+    color: $color-main2;
+    font-family: $font-family-bold;
+    text-decoration: none;
+    transition: $transition-time ease-in-out;
+    &:hover{
+      color: $color-main;
+    }
+  }
+}
+
+.visible__element *{
+  transition: $transition-time-big ease-in-out;
+}
+
+
+.scroll__top .roadmap__item{
+  transform: translateY(118px);
+  &.active__item{
+    transform: translateY(0);
+  }
+}
+
+
+
+
+//.visible__element .roadmap__title, .visible__element .roadmap__line, .visible__element .roadmap__item:before, .visible__element h3:before {
+//  background: $color-main2;
+//}
